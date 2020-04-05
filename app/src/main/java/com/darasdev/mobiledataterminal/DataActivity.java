@@ -26,6 +26,7 @@ import java.util.List;
 public class DataActivity extends AppCompatActivity {
     private SQLiteDatabase database;
     private Cursor cursor;
+    ArrayList<Product> productList = new ArrayList<>();
     DataDAO dataDAO = new DataDAO(this);
 
     private RecyclerView recyclerView;
@@ -37,25 +38,14 @@ public class DataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
-        ArrayList<Product> productList = new ArrayList<>();
-        productList.add(new Product("NAME", "DESCRIPTION", 1234));
-        productList.add(new Product("LOL", "Some tolol", 4334));
-        productList.add(new Product("NAME", "DSCR", 1234));
-
-        recyclerView = findViewById(R.id.myRC);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        mAdapter = new RecyclerViewAdapter(productList);
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(mAdapter);
-
+        Toast.makeText(this, "Delete product by click", Toast.LENGTH_LONG).show();
         reloadProductList();
     }
 
 
+    ArrayList<Product> productList2;
     void reloadProductList(){
-        ArrayList<Product> productList2 = dataDAO.getAllProduct();
+        productList2 = dataDAO.getAllProduct();
 
         recyclerView = findViewById(R.id.myRC);
         recyclerView.setHasFixedSize(true);
@@ -66,6 +56,7 @@ public class DataActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+
     void addProduct(){
         Product product = new Product();
         product.name = "name";
@@ -73,7 +64,15 @@ public class DataActivity extends AppCompatActivity {
         product.code = 123;
 
         dataDAO.insertProduct(product);
+        reloadProductList();
     }
+
+
+    void deleteProduct(long id){
+        dataDAO.deleteProduct(id);
+        reloadProductList();
+    }
+
 
         @Override
         protected void onDestroy () {
@@ -84,4 +83,19 @@ public class DataActivity extends AppCompatActivity {
             }
             catch(Exception ex){ }
         }
+
+
+    public void productRowClick(View view) {
+        //  delete product
+        RecyclerView.ViewHolder holder = this.recyclerView.getChildViewHolder(view);
+        int pos = holder.getLayoutPosition();
+        long id = productList2.get(pos).getID();
+        dataDAO.deleteProduct(id);
+        reloadProductList();
     }
+
+    public void addProductOnClickDA(View view) {
+        Intent intent = new Intent(this, AddProductActivity.class);
+        startActivity(intent);
+    }
+}

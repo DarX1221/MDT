@@ -9,12 +9,12 @@ import android.widget.Toast;
 public class TerminalDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "terminalDatabase";
     private static final int DB_VERSION = 1;
+    SQLiteDatabase sbBufor;
 
 
-    //Context contextBufor;
+
     TerminalDatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
-        //contextBufor = context;
     }
 
 
@@ -23,11 +23,7 @@ public class TerminalDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         updateMyDatabase(db, 0, DB_VERSION);
 
-        insertData(db, "Product", "Description", 123, 1);
-        insertData(db, "Phone1", "Sony Xperia X", 4558, 1);
-        insertData(db, "Cable", "USB Type-B",2338, 1);
-        insertData(db, "Phone2", "Xiaomi MI6", 1258, 0);
-        insertData(db, "Cable", "USB Type-C",2338, 1);
+        insertData(db, "Name", "Description", 1234, 1);
     }
 
 
@@ -48,8 +44,7 @@ public class TerminalDatabaseHelper extends SQLiteOpenHelper {
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion){
         if(oldVersion < 1){
-            toastMaker("Create DB");
-            db.execSQL("CREATE TABLE DATA (ID INTEGER PRIMARY KEY AUTOINCREMENT,"
+            db.execSQL("CREATE TABLE DATA (_ID INTEGER PRIMARY KEY,"
                     + "NAME TEXT, "
                     + "DESCRIPTION TEXT, "
                     + "CODE INTEGER);");
@@ -57,23 +52,7 @@ public class TerminalDatabaseHelper extends SQLiteOpenHelper {
         }
         if(oldVersion > 2) {
             db.execSQL("ALTER TABLE DATA ADD COLUMN FAVORITE NUMERIC");
-            toastMaker("Upgrade DB");
         }
     }
 
-
-    void createSomeProd(){
-        /*insertData(db, "Product", "Description", 123, 1);
-        insertData(db, "Phone1", "Sony Xperia X", 4558, 1);
-        insertData(db, "Cable", "USB Type-B",2338, 1);
-        insertData(db, "Phone2", "Xiaomi MI6", 1258, 0);
-        insertData(db, "Cable", "USB Type-C",2338, 1);*/
-    }
-
-
-
-    void toastMaker(String text){
-
-        //Toast.makeText(contextBufor, text, Toast.LENGTH_SHORT).show();
-    }
 }

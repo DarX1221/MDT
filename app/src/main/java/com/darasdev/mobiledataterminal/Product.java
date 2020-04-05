@@ -29,13 +29,14 @@ public class Product  {
     }
 
 
-    int id, code;
+    int code;
     String name, type, description;
 
-    void setID(int id){
+    long id;
+    void setID(long id){
         this.id = id;
     }
-    int getID(){
+    long getID(){
         return id;
     }
 

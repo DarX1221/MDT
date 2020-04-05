@@ -16,12 +16,15 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    TerminalDatabaseHelper terminalDatabase = new TerminalDatabaseHelper(this);
+    DataDAO dataDAO = new DataDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TerminalDatabaseHelper terminalDatabase = new TerminalDatabaseHelper(this);
+
+        showDataBase();
     }
 
 
@@ -31,11 +34,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    void showAddProductLayout(){
+        Intent intent = new Intent(this, AddProductActivity.class);
+        startActivity(intent);
+
+    }
+
     public void showDataOnClick(View view) {
         showDataBase();
     }
     public void addDataOnClick(View view) {
+        showAddProductLayout();
     }
+
 
 
 }

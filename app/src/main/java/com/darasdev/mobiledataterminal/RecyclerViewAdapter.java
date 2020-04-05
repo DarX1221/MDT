@@ -35,6 +35,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .inflate(R.layout.product_row, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v);
+
+        //int position = vh.getLayoutPosition();
+        //mProductList.get(position).id = position;
         return vh;
     }
 
@@ -45,6 +48,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Product currentProduct = mProductList.get(position);
 
         // - replace the contents of the view with that element
+
+        int position2 = holder.getLayoutPosition();
+        //mProductList.get(position2).id = position;
         holder.productNameTV.setText(currentProduct.getName());
         holder.productDescrTV.setText(currentProduct.getDescription());
         String codeBufor = Integer.toString(currentProduct.getCode());

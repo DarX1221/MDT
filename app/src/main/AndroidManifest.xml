@@ -12,7 +12,8 @@
         <activity android:name=".AddProductActivity"></activity>
         <activity android:name=".Product" />
         <activity android:name=".DataActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
