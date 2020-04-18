@@ -9,6 +9,8 @@ public interface DataBase {
     final static String DB_DESCRIPTION = "DESCRIPTION";
     final static String DB_CODE = "CODE";
 
+    final static String SCAN_CODE_KEY = "SCAN_CODE_KEY";
+
 
 
 

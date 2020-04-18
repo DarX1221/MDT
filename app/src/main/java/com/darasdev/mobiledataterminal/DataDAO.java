@@ -70,7 +70,7 @@ public class DataDAO {
         buforProduct.id = cursor.getInt(ID_ID);
         buforProduct.name = cursor.getString(NAME_ID);
         buforProduct.description = cursor.getString(DESCRIPTION_ID);
-        buforProduct.code = cursor.getInt(CODE_ID);
+        buforProduct.code = cursor.getString(CODE_ID);
 
         return buforProduct;
     }

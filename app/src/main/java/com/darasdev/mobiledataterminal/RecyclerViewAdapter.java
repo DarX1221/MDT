@@ -36,8 +36,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         MyViewHolder vh = new MyViewHolder(v);
 
-        //int position = vh.getLayoutPosition();
-        //mProductList.get(position).id = position;
         return vh;
     }
 
@@ -49,12 +47,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         // - replace the contents of the view with that element
 
-        int position2 = holder.getLayoutPosition();
-        //mProductList.get(position2).id = position;
+        int position2 = holder.getLayoutPosition();     // it is using to set parameters in holder
         holder.productNameTV.setText(currentProduct.getName());
         holder.productDescrTV.setText(currentProduct.getDescription());
-        String codeBufor = Integer.toString(currentProduct.getCode());
-        holder.productCodeTV.setText(codeBufor);
+        holder.productCodeTV.setText(currentProduct.getCode());
     }
 
     @Override

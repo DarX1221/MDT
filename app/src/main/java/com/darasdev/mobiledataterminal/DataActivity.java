@@ -61,7 +61,7 @@ public class DataActivity extends AppCompatActivity {
         Product product = new Product();
         product.name = "name";
         product.description = "description";
-        product.code = 123;
+        product.code = "123";
 
         dataDAO.insertProduct(product);
         reloadProductList();

@@ -13,7 +13,7 @@ public class Product  {
     TextView descripitonTextView;
     TextView codeTextView;
 
-    public Product(String name, String description, int code){
+    public Product(String name, String description, String code){
         this.name = name;
         this.description = description;
         this.code = code;
@@ -29,8 +29,7 @@ public class Product  {
     }
 
 
-    int code;
-    String name, type, description;
+    String name, type, code, description;
 
     long id;
     void setID(long id){
@@ -65,10 +64,10 @@ public class Product  {
     }
 
 
-    void setCode(int code){
+    void setCode(String code){
         this.code = code;
     }
-    int getCode(){
+    String getCode(){
         return code;
     }
 
@@ -83,15 +82,5 @@ public class Product  {
 }
 
 
-
-
-/*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
-    }
-
-*/
 
 

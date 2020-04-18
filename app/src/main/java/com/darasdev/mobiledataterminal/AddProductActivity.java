@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.darasdev.mobiledataterminal.Scanner.ScannerBarcodeActivity;
 
 public class AddProductActivity extends AppCompatActivity {
     EditText productNameET, productDescriptionET, productCodeET;
@@ -38,7 +41,7 @@ public class AddProductActivity extends AppCompatActivity {
 
          product.setName(productNameStr);
          product.setDescription(productDescriptionStr);
-         product.setCode(Integer.parseInt(productCodeStr));
+         product.setCode(productCodeStr);
 
          dataDAO.insertProduct(product);
         Toast.makeText(this, "Added new product", Toast.LENGTH_LONG).show();
@@ -59,6 +62,22 @@ public class AddProductActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
+
+    String scanCode;
+    ScannerBarcodeActivity scannerBarcodeActivity = new ScannerBarcodeActivity();
+    public void scanButtonOnClick(View view) {
+        Intent intent = new Intent(this, ScannerBarcodeActivity.class);
+        startActivity(intent);
+        scannerBarcodeActivity.setParentObject(this);
+
+
+    }
+
+
+    public void scannerResult(String code) {
+        Toast.makeText(this, "Added " + code, Toast.LENGTH_SHORT).show();
+        productCodeET.setText(code);
     }
 /*
     public void showDataOnClick(View view) {
