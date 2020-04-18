@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3B03CAAD">
+
+
+        <TextView
+            android:text="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:text="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:text="Code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"/>
+
+
+    </LinearLayout>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/myRC"
+    android:layout_weight="100"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:onClick="deleteONClick"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:paddingBottom="20dp">
+        <Button
+            android:id="@+id/show_data_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Product"
+            android:onClick="addProductOnClickDA"
+            />
+    </LinearLayout>
+
+</LinearLayout>

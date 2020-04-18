@@ -7,32 +7,21 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/test_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TEST"
-        android:onClick="testOnClick"/>
 
     <Button
         android:id="@+id/show_data_button"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="SHOW DATA"
-        android:onClick="showDataOnClick"/>
+        android:onClick="showDataOnClick"
+        android:layout_weight="2"/>
     <Button
         android:id="@+id/add_data_button"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="ADD DATA"
-        android:onClick="addDataOnClick"/>
-    <Button
-        android:id="@+id/scan_barcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SCAN BARCODE"
-        android:onClick="scanBarcodeOnClick"/>
-
+        android:onClick="addDataOnClick"
+        android:layout_weight="2"/>
 
 
 </LinearLayout>

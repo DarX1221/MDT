@@ -59,6 +59,5 @@ public class MainActivity extends AppCompatActivity {
         showAddProductLayout();
     }
     public void scanBarcodeOnClick(View view) { scannerBarCode();}
-
     public void testOnClick(View view) { testActiv();}
 }

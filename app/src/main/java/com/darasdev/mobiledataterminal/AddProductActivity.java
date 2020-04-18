@@ -24,6 +24,26 @@ public class AddProductActivity extends AppCompatActivity {
         productDescriptionET = (EditText) findViewById(R.id.product_description_editText);
         productCodeET = (EditText) findViewById(R.id.product_code_editText);
 
+        if(savedInstanceState != null) {
+            String bufor = savedInstanceState.getString("NAME_KEY");
+            productNameET.setText(bufor);
+
+            bufor = savedInstanceState.getString("DESCRIPTION_KEY");
+            productDescriptionET.setText(bufor);
+
+            bufor = savedInstanceState.getString("CODE_KEY");
+            productCodeET.setText(bufor);
+        }
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putString("NAME_KEY", productNameStr);
+        savedInstanceState.putString("DESCRIPTION_KEY", productDescriptionStr);
+        savedInstanceState.putString("CODE_KEY", productCodeStr);
     }
 
 
@@ -79,9 +99,11 @@ public class AddProductActivity extends AppCompatActivity {
         Toast.makeText(this, "Added " + code, Toast.LENGTH_SHORT).show();
         productCodeET.setText(code);
     }
-/*
-    public void showDataOnClick(View view) {
-        Intent intent = new Intent(this, DataActivity.class);
-        startActivity(intent);
-    }*/
+
+    public void clearOnClick(View view) {
+
+        productNameET.setText("");
+        productDescriptionET.setText("");
+        productCodeET.setText("");
+    }
 }

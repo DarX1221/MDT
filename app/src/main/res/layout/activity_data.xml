@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#3B03CAAD">
 
 
@@ -43,16 +43,25 @@
 
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/myRC"
+    android:layout_weight="100"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:onClick="deleteONClick"/>
 
-<Button
-android:id="@+id/show_data_button"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Add Product"
-android:onClick="addProductOnClickDA"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:paddingBottom="20dp">
+        <Button
+            android:id="@+id/show_data_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Product"
+            android:onClick="addProductOnClickDA"
+            />
+    </LinearLayout>
 
 </LinearLayout>
